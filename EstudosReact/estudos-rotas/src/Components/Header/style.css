@@ -1,0 +1,17 @@
+.header{
+    height: 5vh;
+    width: 100%;
+}
+
+.header ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px;
+    list-style-type: none;
+    
+}
+
+.header ul li a{
+    text-decoration: none;
+}

@@ -1,0 +1,34 @@
+.body{
+    height: 70vh;
+    width: 100%;
+
+}
+
+h1{
+    margin: 0px;
+}
+
+.body button{
+    margin: 10px;
+    color: #FF8700;
+    background-color:whitesmoke;
+    border-color: #805626;
+    border-radius: 15px;
+    width: 15%;
+    height: 30px;
+}
+
+.h1_size{
+    font-size: 168px;
+}
+
+.horas{
+    color: #804400;
+}
+.minutos{
+    color: #CC6D00;
+    
+}
+.segundos{
+    color: #FFAC4D;
+}

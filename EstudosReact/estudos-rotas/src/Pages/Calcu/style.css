@@ -1,0 +1,25 @@
+.Calc{
+    width: 100%;
+}
+.numeros{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.Calc div{  
+    
+}
+
+
+.Size-button button{
+    margin: 10px;
+    color: #FF8700;
+    background-color:whitesmoke;
+    border-color: #805626;
+    border-radius: 15px;
+    width: 15%;
+    height: 30px;
+}
