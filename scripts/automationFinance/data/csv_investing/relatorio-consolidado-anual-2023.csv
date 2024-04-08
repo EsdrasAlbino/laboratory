@@ -1,0 +1,11 @@
+Produto,Instituição,Conta,Código de Negociação,CNPJ da Empresa,Código ISIN / Distribuição,Tipo,Escriturador,Quantidade,Quantidade Disponível,Quantidade Indisponível,Motivo,Preço de Fechamento,Valor Atualizado
+AMER3 - AMERICANAS S.A                                    ,ORAMA DTVM S.A.,1632704,AMER3,00776574000156,BRAMERACNOR6 - 101,ON,ITAU CV S/A,25,25,-,-," R$ 0,91 "," R$ 22,75 "
+CIEL3 - CIELO S.A. - INSTITUIÇÃO DE PAGAMENTO             ,ORAMA DTVM S.A.,1632704,CIEL3,01027058000191,BRCIELACNOR3 - 155,ON,BANCO BRADESCO S/A,34,34,-,-," R$ 4,69 "," R$ 159,46 "
+CSAN3 - COSAN S.A.                                        ,ORAMA DTVM S.A.,1632704,CSAN3,50746577000115,BRCSANACNOR6 - 124,ON,ITAU CV S/A,4,4,-,-," R$ 19,36 "," R$ 77,44 "
+RAIZ4 - RAIZEN S.A.                                       ,ORAMA DTVM S.A.,1632704,RAIZ4,33453598000123,BRRAIZACNPR6 - 109,PN,BTG PACTUAL SERVICOS FINANCEIROS S/A DTVM,4,4,-,-," R$ 4,03 "," R$ 16,12 "
+RNEW3 - RENOVA ENERGIA S.A.                               ,ORAMA DTVM S.A.,1632704,RNEW3,08534605000174,BRRNEWACNOR8 - 110,ON,ITAU CV S/A,42,42,-,-," R$ 1,24 "," R$ 52,08 "
+SAPR3 - CIA SANEAMENTO DO PARANA - SANEPAR                ,ORAMA DTVM S.A.,1632704,SAPR3,76484013000145,BRSAPRACNOR9 - 157,ON,BANCO BRADESCO S/A,5,5,-,-," R$ 5,61 "," R$ 28,05 "
+TAEE11 - TRANSMISSORA ALIANÇA DE ENERGIA ELÉTRICA S.A.     ,ORAMA DTVM S.A.,1632704,TAEE11,07859971000130,BRTAEECDAM10 - 144,UNIT,ITAU CV S/A,1,1,-,-," R$ 38,38 "," R$ 38,38 "
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,Total
+,,,,,,,,,,,,," R$ 394,28 "
