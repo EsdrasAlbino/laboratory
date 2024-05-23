@@ -1,0 +1,20 @@
+path: "/content/gdrive/My Drive/ComputerVisionDeveloper/TrainYolov8CustomDataset" # dataset root dir
+train: images/train # train images (relative to 'path')
+val: images/train # val images (relative to 'path')
+
+# Classes
+names:
+  0: WhatsappApp
+  1: AddContact
+  2: Search
+  3: NewContact
+  4: SaveNewContact
+  5: ExistNumber
+  6: NoExistNumber
+  7: WidgetOpenGallery
+  8: GalleryButton
+  9: OptionsGallery
+  10: GaleriaButton
+  11: FolderOlimpic
+  12: InputToSendMessage
+  13: SendMessage

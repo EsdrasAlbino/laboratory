@@ -1,56 +1,80 @@
-import pywhatkit
-import csv
 import time
-import datetime
 import gspread
+import threading
+from ultralytics import YOLO
+import gui_controler
 
 
-file = "csv_data/data.csv"
-step = {}
-
-gc = gspread.service_account()
-sh = gc.open("Controle_Escolas")
-worksheet = sh.get_worksheet(0)
-
-idx = 1
-
-while True:
+def check_number(number):
     try:
+        print(number)
 
-        values_list = worksheet.row_values(idx)
-        time.sleep(2)
-        idx += 1
-        print(values_list)
-
-        if not values_list[8]:
-            print("enviar")
-
+        if (len(number[6:15]) >= 9):
+            return True
+        return False
     except:
-        time.sleep(5)
-        break
+        return False
 
 
-with open(file, mode='r', encoding='utf-8') as csv_file:
-    csv_reader = csv.reader(csv_file)
-    count_run_total = 20
-    count_run_current = 1
+def main():
+    gc = gspread.service_account()
+    sh = gc.open("Controle_Escolas")
+    worksheet = sh.get_worksheet(0)
+    model = YOLO('weights/best.pt')
+    stop_event = threading.Event()
 
-    for row in csv_reader:
-        minute_current = datetime.datetime.now().minute
-        hour_current = datetime.datetime.now().hour
+    gui_control = gui_controler.GUI_CONTROLLER(model, stop_event)
 
-        print(row[3])
+    idx = 1320
 
-        number = row[3].replace(" ", "").replace(
-            "(", "").replace(")", "").replace("-", "")
+    while True:
+        try:
+            values_list = worksheet.row_values(idx)
+            time.sleep(2)
+            print(values_list)
 
-        if (number.split("9")[0] == "81" or number.split("9")[0] == "87"):
+            if not values_list[9] and values_list[13] == "Esdras":
+                print(f"enviado para: {values_list[1]}")
 
-            # Send a WhatsApp Message to a Contact at 1:30 PM
-            pywhatkit.sendwhatmsg(
-                f"+55{number}", f"Olá, {row[0]}. Tudo bem?😁\n\nSou o Esdras Albino, do time da Tangram Educação Financeira. Estou com uma boa proposta que acredito ser muito valiosa para você. Posso enviar uma mensagem explicando os detalhes?", hour_current, minute_current+2)
+                number = values_list[4].replace(" ", "").replace(
+                    "(", "").replace(")", "").replace("-", "")
+                number_valid = check_number(values_list[4])
+                instituition_name = values_list[1]
+                print(f"number_valid: {number_valid}")
+
+                if (number_valid):
+
+                    msg = f"Olá, {instituition_name}, tudo bem? Eu sou o Esdras Albino.\n\nFelipe Baldi, fundador da Tangram Educação Financeira, me passou seu contato.\nEle me disse que vocês poderiam se interessar em participar da Olimpíada Tangram, a maior Olimpíada de Educação Financeira do Brasil.\n\nA Tangram foi nomeada, pelo Instituto XP, a melhor solução de Educação Financeira do Brasil para escolas, no ano passado.\n\nTenho um material aqui explicando sobre a Olimpíada. Você tem interesse em saber como vai funcionar?"
+
+                    number_valid = gui_control.add_contact(number)
+
+                    if (number_valid):
+                        # gui_control.search_contact(number)
+                        gui_control.send_message_desktop(msg)
+                        gui_control.send_message_mobile(number)
+
+                        time.sleep(5)
+                        worksheet.update_cell(
+                            idx, 11, "Não viu")
+                    else:
+                        print("Número não existe numero")
+                        worksheet.update_cell(idx, 11, "Número não existe")
+                        time.sleep(5)
+
+                    time.sleep(5)
+                    worksheet.update_cell(
+                        idx, 10, "1.1 - Prospecção e Qualificação")
+                    time.sleep(5)
+                    worksheet.update_cell(
+                        idx, 13, "2")
+
+            idx += 1
+
+        except:
             time.sleep(5)
-            count_run_current += 1
-        if (count_run_current == count_run_total):
-            break
-        # break
+            print("error")
+            idx += 1
+            continue
+
+
+main()

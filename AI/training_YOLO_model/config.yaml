@@ -1,0 +1,20 @@
+path: D:\laboratory\AI\training_YOLO_model
+train: images\train
+val: images\train
+
+# Classes
+names:
+  0: WhatsappApp
+  1: AddContact
+  2: Search
+  3: NewContact
+  4: SaveNewContact
+  5: ExistNumber
+  6: NoExistNumber
+  7: WidgetOpenGallery
+  8: GalleryButton
+  9: OptionsGallery
+  10: GaleriaButton
+  11: FolderOlimpic
+  12: InputToSendMessage
+  13: SendMessage
